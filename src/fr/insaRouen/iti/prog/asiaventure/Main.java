@@ -19,7 +19,8 @@ public class Main {
                 case 1:
                     if (s == null) {
                         System.out.println("Création d'un monde par défaut");
-                        s = new Simulateur(new Monde("Monde"));
+                        //s = new Simulateur(new Monde("Monde"));
+                        s = new Simulateur(new FileReader(new File("/home/mgevia/Documents/ITI3/2/java_avancee/TP9/asiaventure/world.txt")));
                     }
                     while (true) {
                         s.executerUnTour();

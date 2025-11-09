@@ -88,49 +88,39 @@ public class JoueurHumain extends Vivant implements Executable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Joueur ");
-        sb.append(this.getNom());
+        sb.append("Joueur :\n");
+        sb.append(String.format("\t%s\n",this.getNom()));
 
         Set<String> objets = this.getObjets().keySet();
         if (objets.size() > 0) {
-            sb.append(" portant ");
+            sb.append("\t\tportant :\n");
             for (String objet : objets) {
-                sb.append(objet);
-                sb.append(", ");
+                sb.append(String.format("\t\t\t%s\n",objet));
             }
-            sb.deleteCharAt(sb.length() - 1);
-            sb.deleteCharAt(sb.length() - 1);
         }
-        
-        sb.append(" dans ");
-        sb.append(this.getPiece().getNom());
+
+        sb.append(String.format("\t\tdans %s\n",this.getPiece().getNom()));
 
         Collection<Objet> objetsPiece = this.getPiece().getObjets();
         if (objetsPiece.size() > 0) {
-            sb.append(" contenant ");
+            sb.append("\t\tcontenant :\n");
             for (Objet objet : objetsPiece) {
-                sb.append(objet.getNom());
-                sb.append(", ");
+                sb.append(String.format("\t\t\t%s\n",objet.getNom()));
             }
-            sb.deleteCharAt(sb.length() - 1);
-            sb.deleteCharAt(sb.length() - 1);
         }
-
         Collection<Porte> portes = this.getPiece().getPortes();
         if (portes.size() > 0) {
-            sb.append(" avec les portes ");
+            sb.append("\t\tavec les portes :\n");
             for (Porte porte : portes) {
-                sb.append(porte.getNom());
+                sb.append(String.format("\t\t\t%s",porte.getNom()));
                 Etat etat = porte.getEtat();
                 sb.append("[");
                 sb.append(etat);
-                sb.append("]");
-                sb.append(", ");
+                sb.append("]\n");
             }
-            sb.deleteCharAt(sb.length() - 1);
-            sb.deleteCharAt(sb.length() - 1);
-        }
 
+        }
+        sb.append("\n");
         return sb.toString();
     }
 }

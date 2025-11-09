@@ -137,7 +137,7 @@ public class Simulateur implements java.io.Serializable {
             }
         }
 
-        // pour chaque Executable appeler la m´ethode executer.
+        // pour chaque Executable appeler la méthode executer.
         for (Executable executable : monde.getExecutables()) {
             try {
                 executable.executer();
@@ -146,7 +146,7 @@ public class Simulateur implements java.io.Serializable {
             }
         }
 
-        // v´erifier chaque condition de fin et retourner ENCOURS si aucune n’est v´erifi´ee, sinon retourner l’´etat.
+        // vérifier chaque condition de fin et retourner ENCOURS si aucune n’est vérifiée, sinon retourner l’état.
         for (ConditionDeFin cdf : this.conditionsDeFin) {
             this.etatDuJeu = cdf.verifierCondition();
             if (this.etatDuJeu != EtatDuJeu.ENCOURS) {
